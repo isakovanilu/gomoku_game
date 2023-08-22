@@ -23,7 +23,12 @@ def winner_check(matrix, value, matrix_size):
     for i in range(len(matrix)):
         for j in range(len(matrix)):
             if matrix[i][j] == value:
-                if j < matrix_size and all([matrix[i + k][j] == value for k in range(5)]): # 5 consecutive rows
+                # column wise/ horizontal check
+                if j < matrix_size -4 and all([matrix[i][j + k] == value for k in range(5)]): # 5 consecutive rows
                     print(f'winner {value}')
-                if i < matrix_size and all([matrix[i][j + k] == value for k in range(5)]): # 5 consecutive rows
+                    return True
+                # row wise/ vertical check
+                if i < matrix_size -4 and all([matrix[i + k][j] == value for k in range(5)]): # 5 consecutive rows
                     print(f'winner {value}')
+                    return True
+    return False
