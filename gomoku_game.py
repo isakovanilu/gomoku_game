@@ -40,3 +40,19 @@ def winner_check(matrix, value, matrix_size):
                     print(f'winner {value}')
                     return True
     return False
+
+def play():
+    value = "X"
+    # create a matrix
+    length = int(input(f"Enter board size : "))
+    matrix = [[' ' for i in range(length)] for j in range(length)] # it will create an empty
+    while True:
+        row = int(input(f"Player {value}, enter row : "))
+        column = int(input(f"Player {value}, enter column : "))
+        update_matrix(matrix, row=row, column=column, value=value)
+        if winner_check(matrix, value, length):
+            print(f"Player {value} is winner")
+            break
+        value = "O" if value == "X" else "X"
+
+play()
