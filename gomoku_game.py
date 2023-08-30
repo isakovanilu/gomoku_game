@@ -32,7 +32,7 @@ def winner_check(matrix, value, matrix_size):
                     print(f'winner {value}')
                     return True
                 # diag \
-                if i < matrix_size - 4 and all([matrix[i + k][j] == value for k in range(5)]): # 5 consecutive rows
+                if i < matrix_size - 4 and j < matrix_size - 4 and all([matrix[i+k][j+k] == value for k in range(5)]):    
                     print(f'winner {value}')
                     return True
                 # diag /
