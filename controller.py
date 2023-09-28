@@ -6,6 +6,7 @@ class DumbComputerPlayer:
 
     def make_random_move(self):
         return random.randint(0, self.board_size-1), random.randint(0, self.board_size-1)
+
 class GomokuController:
     def __init__(self, model, view):
         self.model = model
