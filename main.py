@@ -1,11 +1,12 @@
 
 from view import GomokuView
 from model import GomokuModel
-from controller import GomokuController
+from controller import GomokuController, DumbComputerPlayer
 
 if __name__ == "__main__":
-    size = int(input("Enter board size: "))
-    model = GomokuModel(size)
+    board_size = int(input("Enter board size: "))
+    model = GomokuModel(board_size)
     view = GomokuView()
-    controller = GomokuController(model, view)
+    dumbcomputer = DumbComputerPlayer(board_size)
+    controller = GomokuController(model, view, dumbcomputer)
     controller.play_game()
