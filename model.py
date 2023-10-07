@@ -5,9 +5,7 @@ class GomokuModel:
         self.current_player = "X"
 
     def is_valid_move(self, row, column):
-        return (0 <= row < self.size and 
-                0 <= column < self.size and 
-                self.board[row][column] == ' ')
+        return 0 <= row < self.size and 0 <= column < self.size and self.board[row][column] == ' '
 
     def update_board(self, row, column):
         if self.is_valid_move(row, column):
@@ -32,7 +30,7 @@ class GomokuModel:
                     if i >= 4 and j < self.size - 4 and all([self.board[i-k][j+k] == value for k in range(5)]):
                         return True
         return False
-
+    
     def toggle_player(self):
         self.current_player = "O" if self.current_player == "X" else "X"
 
