@@ -12,23 +12,16 @@ class GomokuModel:
             self.board[row][column] = self.current_player
             return True
         return False
-
+    
     def check_winner(self, value):
+        directions = [(0, 1), (1, 0), (1, 1), (1, -1)]
         for i in range(self.size):
             for j in range(self.size):
                 if self.board[i][j] == value:
-                    # row-wise/horizontal check
-                    if j < self.size - 4 and all([self.board[i][j + k] == value for k in range(5)]):
-                        return True
-                    # column-wise/vertical check
-                    if i < self.size - 4 and all([self.board[i + k][j] == value for k in range(5)]):
-                        return True
-                    # diagonal check: \
-                    if i < self.size - 4 and j < self.size - 4 and all([self.board[i+k][j+k] == value for k in range(5)]):    
-                        return True
-                    # diagonal check: /
-                    if i >= 4 and j < self.size - 4 and all([self.board[i-k][j+k] == value for k in range(5)]):
-                        return True
+                    for dx, dy in directions:
+                        if 0 <= i + 4*dx < self.size and 0 <= j + 4*dy < self.size:
+                            if all(self.board[i + k*dx][j + k*dy] == value for k in range(5)):
+                                return True
         return False
     
     def toggle_player(self):
