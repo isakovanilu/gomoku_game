@@ -4,6 +4,9 @@ class SmartComputerPlayer:
         self.board = board
         self.board_size = board_size
         
+    def make_smart_move(self):
+        pass
+    #TODO
 class DumbComputerPlayer:
     def __init__(self, board_size):
         self.board_size = board_size
