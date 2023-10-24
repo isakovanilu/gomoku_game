@@ -5,8 +5,13 @@ class SmartComputerPlayer:
         self.board_size = board_size
         
     def make_smart_move(self):
-        pass
-    #TODO
+        for row in range(self.board_size):
+            for col in range(self.board_size):
+                if self.board[row][col] == '-':
+                    pass
+                    # TODO check the moves
+        
+
 class DumbComputerPlayer:
     def __init__(self, board_size):
         self.board_size = board_size
