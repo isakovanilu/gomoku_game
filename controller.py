@@ -12,6 +12,13 @@ class SmartComputerPlayer:
                     # TODO check the moves
         
 
+    def check_winning_move(self, row, col):
+        directions = [(1, 0), (0, 1), (1, 1), (1, -1)]
+        count = 0
+        for i in range(-4, 5):
+            r, c = row + i * directions[0], col + i * directions[1]
+            pass
+            
 class DumbComputerPlayer:
     def __init__(self, board_size):
         self.board_size = board_size
@@ -42,4 +49,3 @@ class GomokuController:
                 self.model.toggle_player()
             else:
                 self.view.display_message('Please enter different coordinates or position already occupied')
-
