@@ -21,6 +21,8 @@ class SmartComputerPlayer:
         count = 0
         for i in range(-4, 5):
             r, c = row + i * directions[0], col + i * directions[1]
+            if self.board[r][c] == self.board[row][col]:
+                count += 1
             pass
             
 class DumbComputerPlayer:
