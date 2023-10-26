@@ -11,7 +11,11 @@ class SmartComputerPlayer:
                     pass
                     # TODO check the moves
         
-
+    def make_random_move(self):
+        row = random.randint(0, self.board_size - 1)
+        col = random.randint(0, self.board_size - 1)
+        return row, col
+    
     def check_winning_move(self, row, col):
         directions = [(1, 0), (0, 1), (1, 1), (1, -1)]
         count = 0
