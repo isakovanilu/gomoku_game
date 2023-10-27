@@ -23,7 +23,14 @@ class SmartComputerPlayer:
             r, c = row + i * directions[0], col + i * directions[1]
             if self.board[r][c] == self.board[row][col]:
                 count += 1
-            pass
+                if count == 5:
+                    return True
+                else:
+                    count = 0
+            else:
+                count = 0
+        return False
+        pass
             
 class DumbComputerPlayer:
     def __init__(self, board_size):
