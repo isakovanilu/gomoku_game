@@ -17,19 +17,20 @@ class SmartComputerPlayer:
         return row, col
     
     def check_winning_move(self, row, col):
-        directions = [(1, 0), (0, 1), (1, 1), (1, -1)]
-        count = 0
-        for i in range(-4, 5):
-            r, c = row + i * directions[0], col + i * directions[1]
-            if self.board[r][c] == self.board[row][col]:
-                count += 1
-                if count == 5:
-                    return True
+        def check_direction(direction):
+            count = 0
+            for i in range(-4, 5):
+                r, c = row + i * direction[0], col + i * direction[1]
+                if 0 <= r < self.board_size and 0 <= c < self.board_size:
+                    if self.board[r][c] == self.board[row][col]:
+                        count += 1
+                        if count == 5:
+                            return True
+                    else:
+                        count = 0
                 else:
                     count = 0
-            else:
-                count = 0
-        return False
+            return False
         pass
             
 class DumbComputerPlayer:
