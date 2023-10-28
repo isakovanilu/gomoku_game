@@ -31,7 +31,13 @@ class SmartComputerPlayer:
                 else:
                     count = 0
             return False
-        pass
+        directions = [(1, 0), (0, 1), (1, 1), (1, -1)]
+
+        for direction in directions:
+            if check_direction(direction):
+                return True
+
+        return False
             
 class DumbComputerPlayer:
     def __init__(self, board_size):
