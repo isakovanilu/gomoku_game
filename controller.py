@@ -8,8 +8,8 @@ class SmartComputerPlayer:
         for row in range(self.board_size):
             for col in range(self.board_size):
                 if self.board[row][col] == '-':
-                    pass
-                    # TODO check the moves
+                    if self.check_winning_move(row, col):
+                        return row, col  
         
     def make_random_move(self):
         row = random.randint(0, self.board_size - 1)
