@@ -1,3 +1,4 @@
+import numpy as np
 class GomokuModel:
     def __init__(self, size):
         self.size = size
@@ -14,14 +15,18 @@ class GomokuModel:
         return False
     
     def check_winner(self, value):
-        directions = [(0, 1), (1, 0), (1, 1), (1, -1)]
         for i in range(self.size):
             for j in range(self.size):
                 if self.board[i][j] == value:
-                    for dx, dy in directions:
-                        if 0 <= i + 4*dx < self.size and 0 <= j + 4*dy < self.size:
-                            if all(self.board[i + k*dx][j + k*dy] == value for k in range(5)):
-                                return True
+                    for dx, dy in [(0, 1), (1, 0), (1, 1), (1, -1)]:
+                        win = True
+                        for k in range(5):
+                            r, c = i + k * dx, j + k * dy
+                            if not (0 <= r < self.size and 0 <= c < self.size and self.board[r][c] == value):
+                                win = False
+                                break
+                        if win:
+                            return True
         return False
     
     def toggle_player(self):
