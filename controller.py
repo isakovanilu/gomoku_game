@@ -58,7 +58,7 @@ class GomokuController:
         while True:
             if self.dumb_computer and self.model.get_current_player() == "O":  
                 row, column = self.dumb_computer.make_random_move()
-                self.view.display_message(f"Dumb Computer Player chose ({row}, {column})")
+                self.view.display_message(f"Computer Player chose ({row}, {column})")
             else:
                 row = int(self.view.get_input(f"Player {self.model.get_current_player()}, enter row: "))
                 column = int(self.view.get_input(f"Player {self.model.get_current_player()}, enter column: "))
