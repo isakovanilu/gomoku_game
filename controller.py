@@ -40,14 +40,6 @@ class SmartComputerPlayer:
                 return True
 
         return False
-            
-class DumbComputerPlayer:
-    def __init__(self, board_size):
-        self.board_size = board_size
-
-    def make_random_move(self):
-        return random.randint(0, self.board_size-1), random.randint(0, self.board_size-1)
-
 class GomokuController:
     def __init__(self, model, view, dumb_computer=None):
         self.model = model
