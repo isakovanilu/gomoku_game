@@ -40,16 +40,17 @@ class SmartComputerPlayer:
                 return True
 
         return False
+
 class GomokuController:
-    def __init__(self, model, view, dumb_computer=None):
+    def __init__(self, model, view, computer=None):
         self.model = model
         self.view = view
-        self.dumb_computer = dumb_computer
+        self.computer = computer
 
     def play_game(self):
         while True:
-            if self.dumb_computer and self.model.get_current_player() == "O":  
-                row, column = self.dumb_computer.make_random_move()
+            if self.computer and self.model.get_current_player() == "O":  
+                row, column = self.computer.make_random_move()
                 self.view.display_message(f"Computer Player chose ({row}, {column})")
             else:
                 row = int(self.view.get_input(f"Player {self.model.get_current_player()}, enter row: "))
