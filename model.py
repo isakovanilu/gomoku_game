@@ -1,6 +1,8 @@
 import numpy as np
 class GomokuModel:
     def __init__(self, size):
+        if size < 5:
+            raise ValueError('board size cannot be less than 5')
         self.size = size
         self.board = [[' ' for _ in range(size)] for _ in range(size)]
         self.current_player = "X"
