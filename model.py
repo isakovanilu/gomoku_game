@@ -1,6 +1,9 @@
 import numpy as np
 class GomokuModel:
     def __init__(self, board_size):
+        if not isinstance(board_size, int):
+            raise ValueError('Board size must be an integer.')
+            
         if board_size < 5:
             raise ValueError('board board_size cannot be less than 5')
         self.board_size = board_size
