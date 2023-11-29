@@ -42,7 +42,7 @@ class SmartComputerPlayer:
         return False
 
 class GomokuController:
-    def __init__(self, model, view, computer=None):
+    def __init__(self, model, view, computer):
         self.model = model
         self.view = view
         self.computer = computer
