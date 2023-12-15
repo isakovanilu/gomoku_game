@@ -12,6 +12,7 @@ class SmartComputerPlayer:
                 if self.board[row][col] == '-':
                     if self.check_winning_move(row, col):
                         return row, col
+        return None
 
     def make_random_move(self):
         row = random.randint(0, self.board_size - 1)
