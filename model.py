@@ -12,6 +12,9 @@ class GomokuModel:
         self.current_player = "X"
 
     def is_valid_move(self, row, column):
+        """
+        Checks if a move is valid with the given row/column index for the move 
+        """
         return 0 <= row < self.board_size and 0 <= column < self.board_size and self.board[
             row][column] == ' '
 
