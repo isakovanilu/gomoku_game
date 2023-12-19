@@ -19,6 +19,7 @@ class GomokuModel:
             row][column] == ' '
 
     def update_board(self, row, column):
+        """Updates the with the given row/column values."""
         if self.is_valid_move(row, column):
             self.board[row][column] = self.current_player
             return True
